@@ -1,4 +1,5 @@
 # Spring boot starter for error handling in webflux microservices
+[![Build Status](https://travis-ci.com/acidelk/error-handling.svg?branch=master)](https://travis-ci.com/acidelk/error-handling)
 
 This starter handle all exceptions and log their.
 
