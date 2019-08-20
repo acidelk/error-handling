@@ -1,0 +1,11 @@
+# EditorConfig helps developers define and maintain consistent
+# coding styles between different editors and IDEs
+# editorconfig.org
+
+[*.{java, gradle, groovy}]
+indent_style = tab
+
+[*.yml]
+indent_style = space
+indent_size = 2
+

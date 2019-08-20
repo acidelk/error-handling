@@ -1,0 +1,24 @@
+plugins {
+    id 'java'
+    id 'io.spring.dependency-management' version '1.0.8.RELEASE'
+}
+
+group = 'com.github.acidelk'
+
+repositories {
+    mavenCentral()
+    jcenter()
+}
+dependencyManagement {
+    imports {
+        mavenBom("org.springframework.boot:spring-boot-parent:2.1.2.RELEASE")
+    }
+}
+
+dependencies {
+    annotationProcessor 'org.projectlombok:lombok:1.18.4'
+
+    compileOnly 'org.springframework.boot:spring-boot-starter-webflux'
+    compileOnly 'com.fasterxml.jackson.core:jackson-annotations:2.9.5'
+    compileOnly 'org.projectlombok:lombok:1.18.4'
+}
