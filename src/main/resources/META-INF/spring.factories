@@ -1,2 +1,2 @@
 org.springframework.boot.autoconfigure.EnableAutoConfiguration=\
-ru.alfabank.corpsign.lib.errorhandling.WebFluxExceptionHandlerAutoConfiguration
+com.github.acidelk.errorhandling.webflux.WebFluxExceptionHandlerAutoConfiguration

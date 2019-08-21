@@ -1,4 +1,4 @@
-package errorhandling.webflux.dto;
+package com.github.acidelk.errorhandling.webflux.dto;
 
 import com.fasterxml.jackson.annotation.JsonIgnore;
 import lombok.*;

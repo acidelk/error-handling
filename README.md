@@ -19,7 +19,7 @@ This starter handle all exceptions and log their.
 build.gradle
 ```
 dependencies {
-    compile 'ru.alfabank.corp-sign:common-lib:{version}'
+    compile 'com.github.acidelk:error-handling:{version}'
 }
 
 ```

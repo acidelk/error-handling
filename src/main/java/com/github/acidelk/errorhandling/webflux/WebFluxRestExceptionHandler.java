@@ -1,6 +1,7 @@
-package errorhandling.webflux;
+package com.github.acidelk.errorhandling.webflux;
 
 import com.fasterxml.jackson.databind.ObjectMapper;
+import com.github.acidelk.errorhandling.webflux.dto.ErrorResponse;
 import lombok.SneakyThrows;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.boot.autoconfigure.web.ResourceProperties;
@@ -13,7 +14,6 @@ import org.springframework.http.codec.ServerCodecConfigurer;
 import org.springframework.web.reactive.function.BodyInserters;
 import org.springframework.web.reactive.function.server.*;
 import reactor.core.publisher.Mono;
-import errorhandling.webflux.dto.ErrorResponse;
 
 import static org.springframework.web.reactive.function.server.RequestPredicates.all;
 

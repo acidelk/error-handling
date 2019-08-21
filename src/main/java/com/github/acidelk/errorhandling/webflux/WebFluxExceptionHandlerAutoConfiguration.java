@@ -1,4 +1,4 @@
-package errorhandling.webflux;
+package com.github.acidelk.errorhandling.webflux;
 
 import com.fasterxml.jackson.databind.ObjectMapper;
 import org.springframework.beans.factory.annotation.Value;
