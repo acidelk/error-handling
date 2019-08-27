@@ -1,24 +1,70 @@
 plugins {
-    id 'java'
-    id 'io.spring.dependency-management' version '1.0.8.RELEASE'
+	id 'java'
+	id 'nebula.info' version '5.0.3'
+	id 'nebula.contacts' version '5.0.3'
+	id 'nebula.source-jar' version '13.2.0'
+	// nebula.release must apply before nebula.bintray
+	// https://github.com/nebula-plugins/nebula-release-plugin/issues/159
+	id 'nebula.release' version '11.1.0'
+	// don`t migrate to 7.+ because bintray extension is changed
+	id 'nebula.nebula-bintray-publishing' version '6.0.6'
+	id "nebula.maven-publish" version "13.2.0"
+	id 'io.spring.dependency-management' version '1.0.8.RELEASE'
 }
 
-group = 'com.github.acidelk'
+group = 'com.github.acidelk'	
+description = 'Small library for error handling in spring webflux based microservices'
+version = project.version
+
+sourceCompatibility = 1.8
+targetCompatibility = 1.8
 
 repositories {
-    mavenCentral()
-    jcenter()
+	jcenter()
 }
+
 dependencyManagement {
-    imports {
-        mavenBom("org.springframework.boot:spring-boot-parent:2.1.2.RELEASE")
-    }
+	imports {
+		mavenBom("org.springframework.boot:spring-boot-parent:2.1.2.RELEASE")
+	}
 }
 
 dependencies {
-    annotationProcessor 'org.projectlombok:lombok:1.18.4'
+	annotationProcessor 'org.projectlombok:lombok:1.18.4'
 
-    compileOnly 'org.springframework.boot:spring-boot-starter-webflux'
-    compileOnly 'com.fasterxml.jackson.core:jackson-annotations:2.9.5'
-    compileOnly 'org.projectlombok:lombok:1.18.4'
+	compileOnly 'org.springframework.boot:spring-boot-starter-webflux'
+	compileOnly 'com.fasterxml.jackson.core:jackson-annotations:2.9.5'
+	compileOnly 'org.projectlombok:lombok:1.18.4'
+}
+
+contacts {
+	'fed.guman@gmail.com' {
+		github 'acidelk'
+		moniker = 'Anton Fedosov'
+		role 'owner'
+	}
+}
+
+publishing {
+	publications {
+		nebula(MavenPublication) {}
+	}
+}
+
+bintray {
+	user = findProperty('bintray.user') ?: System.getenv('BINTRAY_USER')
+	key = findProperty('bintray.api_key') ?: System.getenv('BINTRAY_KEY')
+	publications = ['nebula']
+
+	pkg {
+		userOrg = 'acidelk'
+		repo = 'maven'
+		name = 'error-handling'
+		licenses = ['MIT']
+		websiteUrl = 'https://github.com/acidelk/${project.name}'
+		issueTrackerUrl = 'https://github.com/acidelk/${project.name}/issues'
+		vcsUrl = 'https://github.com/acidelk/${project.name}.git'
+		labels = ['java', 'gradle', 'spring', 'error-handling']
+		publicDownloadNumbers = true
+	}
 }
