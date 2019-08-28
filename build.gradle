@@ -12,9 +12,8 @@ plugins {
 	id 'io.spring.dependency-management' version '1.0.8.RELEASE'
 }
 
-group = 'com.github.acidelk'	
+group = 'com.github.acidelk'
 description = 'Small library for error handling in spring webflux based microservices'
-version = project.version
 
 sourceCompatibility = 1.8
 targetCompatibility = 1.8
