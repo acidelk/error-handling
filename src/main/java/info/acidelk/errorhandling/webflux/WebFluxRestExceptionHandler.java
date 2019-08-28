@@ -1,7 +1,7 @@
-package com.github.acidelk.errorhandling.webflux;
+package info.acidelk.errorhandling.webflux;
 
 import com.fasterxml.jackson.databind.ObjectMapper;
-import com.github.acidelk.errorhandling.webflux.dto.ErrorResponse;
+import info.acidelk.errorhandling.webflux.dto.ErrorResponse;
 import lombok.SneakyThrows;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.boot.autoconfigure.web.ResourceProperties;

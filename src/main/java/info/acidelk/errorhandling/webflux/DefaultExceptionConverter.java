@@ -1,6 +1,6 @@
-package com.github.acidelk.errorhandling.webflux;
+package info.acidelk.errorhandling.webflux;
 
-import com.github.acidelk.errorhandling.webflux.dto.ErrorResponse;
+import info.acidelk.errorhandling.webflux.dto.ErrorResponse;
 import org.springframework.http.HttpStatus;
 
 import java.util.HashMap;

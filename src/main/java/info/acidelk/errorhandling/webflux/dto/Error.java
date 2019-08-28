@@ -1,4 +1,4 @@
-package com.github.acidelk.errorhandling.webflux.dto;
+package info.acidelk.errorhandling.webflux.dto;
 
 import lombok.*;
 

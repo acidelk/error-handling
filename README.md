@@ -20,7 +20,7 @@ This starter handle all exceptions and log their.
 build.gradle
 ```
 dependencies {
-    compile 'com.github.acidelk:error-handling:{version}'
+    compile 'info.acidelk:error-handling:{version}'
 }
 
 ```
