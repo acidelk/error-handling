@@ -56,18 +56,28 @@ publishing {
 					license {
 						name = 'The Apache License, Version 2.0'
 						url = 'http://www.apache.org/licenses/LICENSE-2.0.txt'
+						distribution = 'repository'
 					}
+				}
+				issueManagement {
+					system = 'github'
+					url = 'https://github.com/acidelk/error-handling/issues'
+				}
+				ciManagement {
+					system = 'travis-ci'
+					url = 'https://travis-ci.com/acidelk/error-handling'
 				}
 				developers {
 					developer {
 						id = 'acidelk'
 						name = 'Anton Fedosov'
 						email = 'fed.guman@gmail.com'
+						roles = ['owner']
 					}
 				}
 				scm {
-					connection = 'https://github.com/acidelk/error-handling.git'
-					developerConnection = 'git@github.com:acidelk/error-handling.git'
+					connection = 'scm:git:https://github.com/acidelk/error-handling.git'
+					developerConnection = 'scm:git:https://github.com/acidelk/error-handling.git'
 					url = 'https://github.com/acidelk/error-handling'
 				}
 			}
