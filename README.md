@@ -1,6 +1,6 @@
 # Spring boot starter for error handling in webflux microservices
 [![Build Status](https://travis-ci.com/acidelk/error-handling.svg?branch=master)](https://travis-ci.com/acidelk/error-handling)
- [ ![Download](https://api.bintray.com/packages/acidelk/maven/error-handling/images/download.svg?version=0.1.1) ](https://bintray.com/acidelk/maven/error-handling/0.1.1/link)
+ [![Maven Central](https://img.shields.io/maven-central/v/com.github.acidelk/error-handling.svg?label=Maven%20Central)](https://search.maven.org/search?q=g:%22com.github.acidelk%22%20AND%20a:%22error-handling%22)
 
 This starter handle all exceptions and log their.
 
