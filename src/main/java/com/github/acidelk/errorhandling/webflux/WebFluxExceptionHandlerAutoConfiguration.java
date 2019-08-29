@@ -23,29 +23,29 @@ public class WebFluxExceptionHandlerAutoConfiguration {
 	@Bean
 	@Order(-1)
 	public WebFluxRestExceptionHandler webFluxRestExceptionHandler(
-			ErrorAttributes errorAttributes,
-			ResourceProperties resourceProperties,
-			ServerProperties serverProperties,
-			ApplicationContext applicationContext,
-			DefaultExceptionConverter converter,
-			ObjectMapper objectMapper,
-			ServerCodecConfigurer serverCodecConfigurer
+		ErrorAttributes errorAttributes,
+		ResourceProperties resourceProperties,
+		ServerProperties serverProperties,
+		ApplicationContext applicationContext,
+		DefaultExceptionConverter converter,
+		ObjectMapper objectMapper,
+		ServerCodecConfigurer serverCodecConfigurer
 	) {
 		return new WebFluxRestExceptionHandler(
-				errorAttributes,
-				resourceProperties,
-				serverProperties,
-				applicationContext,
-				converter,
-				objectMapper,
-				serverCodecConfigurer
+			errorAttributes,
+			resourceProperties,
+			serverProperties,
+			applicationContext,
+			converter,
+			objectMapper,
+			serverCodecConfigurer
 		);
 	}
 
 	@Bean
 	@ConditionalOnMissingBean(DefaultExceptionConverter.class)
 	public DefaultExceptionConverter defaultExceptionConverter(
-			@Value("${spring.application.name}") String applicationName
+		@Value("${spring.application.name}") String applicationName
 	) {
 		return new DefaultExceptionConverter(applicationName);
 	}
