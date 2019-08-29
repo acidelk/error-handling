@@ -17,10 +17,10 @@ public class DefaultExceptionConverter {
 		this.serviceName = serviceName;
 	}
 
-	ErrorResponse convert(Exception ex) {
+	public ErrorResponse convert(Exception ex) {
 		return converters.getOrDefault(ex.getClass(), defaultHandler)
-				.apply(ex)
-				.setServiceNameIfEmpty(serviceName);
+			.apply(ex)
+			.setServiceNameIfEmpty(serviceName);
 	}
 
 	private Function<Exception, ErrorResponse> defaultHandler() {

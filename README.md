@@ -5,8 +5,8 @@
 
 This starter handle all exceptions and log their.
 
-## What response model?
-```
+## What response model
+```java
 {
     "error": {
         "code": -1,
@@ -17,16 +17,16 @@ This starter handle all exceptions and log their.
 }
 ```
 
-## How to use?
+## How to use
 build.gradle
-```
+```gradle
 dependencies {
     compile 'com.github.acidelk:error-handling:{version}'
 }
 
 ```
-## How can i customise handlers for my exceptions?
-```
+## How can i customise handlers for my exceptions
+```java
 @Configuration
 public class ErrorHandlerConfiguration {
 
