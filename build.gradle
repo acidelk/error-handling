@@ -2,6 +2,7 @@ plugins {
 	id 'java'
 	id 'maven-publish'
 	id 'signing'
+	id 'io.codearte.nexus-staging' version '0.21.0'
 	id 'io.spring.dependency-management' version '1.0.8.RELEASE'
 }
 
@@ -87,7 +88,13 @@ signing {
 	sign publishing.publications.maven
 }
 
+nexusStaging {
+	username = project.findProperty('nexus_user')
+	password = project.findProperty('nexus_password')
+}
+
 def getMavenRepo() {
-	def contextUrl = 'https://oss.sonatype.org/content/repositories'
-	return version.endsWith('SNAPSHOT') ? "$contextUrl/snapshots" : "$contextUrl/releases"
+	def snapshotsRepo = 'https://oss.sonatype.org/content/repositories/snapshots'
+	def stagingRepo = 'https://oss.sonatype.org/service/local/staging/deploy/maven2'
+	return version.endsWith('SNAPSHOT') ? snapshotsRepo : stagingRepo
 }
