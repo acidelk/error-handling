@@ -1,19 +1,13 @@
 plugins {
 	id 'java'
-	id 'nebula.info' version '5.0.3'
-	id 'nebula.contacts' version '5.0.3'
-	id 'nebula.source-jar' version '13.2.0'
-	// nebula.release must apply before nebula.bintray
-	// https://github.com/nebula-plugins/nebula-release-plugin/issues/159
-	id 'nebula.release' version '11.1.0'
-	// don`t migrate to 7.+ because bintray extension is changed
-	id 'nebula.nebula-bintray-publishing' version '6.0.6'
-	id "nebula.maven-publish" version "13.2.0"
+	id 'maven-publish'
+	id 'signing'
 	id 'io.spring.dependency-management' version '1.0.8.RELEASE'
 }
 
 group = 'com.github.acidelk'
 description = 'Small library for error handling in spring webflux based microservices'
+version = '0.1.0'
 
 sourceCompatibility = 1.8
 targetCompatibility = 1.8
@@ -36,34 +30,64 @@ dependencies {
 	compileOnly 'org.projectlombok:lombok:1.18.4'
 }
 
-contacts {
-	'fed.guman@gmail.com' {
-		github 'acidelk'
-		moniker = 'Anton Fedosov'
-		role 'owner'
-	}
+task sourcesJar(type: Jar) {
+	from sourceSets.main.allJava
+	archiveClassifier = 'sources'
+}
+
+task javadocJar(type: Jar) {
+	from javadoc
+	archiveClassifier = 'javadoc'
 }
 
 publishing {
 	publications {
-		nebula(MavenPublication) {}
+		maven(MavenPublication) {
+			artifactId = project.name
+			from components.java
+			artifact sourcesJar
+			artifact javadocJar
+			pom {
+				name = project.name
+				description = 'Small library for error handling in spring webflux based microservices'
+				url = 'https://github.com/acidelk/error-handling'
+				licenses {
+					license {
+						name = 'The Apache License, Version 2.0'
+						url = 'http://www.apache.org/licenses/LICENSE-2.0.txt'
+					}
+				}
+				developers {
+					developer {
+						id = 'acidelk'
+						name = 'Anton Fedosov'
+						email = 'fed.guman@gmail.com'
+					}
+				}
+				scm {
+					connection = 'https://github.com/acidelk/error-handling.git'
+					developerConnection = 'git@github.com:acidelk/error-handling.git'
+					url = 'https://github.com/acidelk/error-handling'
+				}
+			}
+		}
+	}
+	repositories {
+		maven {
+			credentials {
+				username = project.findProperty('nexus_user')
+				password = project.findProperty('nexus_password')
+			}
+			url = getMavenRepo()
+		}
 	}
 }
 
-bintray {
-	user = findProperty('bintray.user') ?: System.getenv('BINTRAY_USER')
-	key = findProperty('bintray.api_key') ?: System.getenv('BINTRAY_KEY')
-	publications = ['nebula']
+signing {
+	sign publishing.publications.maven
+}
 
-	pkg {
-		userOrg = 'acidelk'
-		repo = 'maven'
-		name = 'error-handling'
-		licenses = ['MIT']
-		websiteUrl = 'https://github.com/acidelk/${project.name}'
-		issueTrackerUrl = 'https://github.com/acidelk/${project.name}/issues'
-		vcsUrl = 'https://github.com/acidelk/${project.name}.git'
-		labels = ['java', 'gradle', 'spring', 'error-handling']
-		publicDownloadNumbers = true
-	}
+def getMavenRepo() {
+	def contextUrl = 'https://oss.sonatype.org/content/repositories'
+	return version.endsWith('SNAPSHOT') ? "$contextUrl/snapshots" : "$contextUrl/releases"
 }
