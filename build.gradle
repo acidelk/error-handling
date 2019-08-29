@@ -50,7 +50,7 @@ publishing {
 			artifact javadocJar
 			pom {
 				name = project.name
-				description = 'Small library for error handling in spring webflux based microservices'
+				description = project.description
 				url = 'https://github.com/acidelk/error-handling'
 				licenses {
 					license {
