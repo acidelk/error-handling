@@ -1,4 +1,5 @@
 # Spring boot starter for error handling in webflux microservices
+[![Codacy Badge](https://api.codacy.com/project/badge/Grade/78b9d088b60f4d8fb2ab54c39d63ba7b)](https://app.codacy.com/app/fed.guman/error-handling?utm_source=github.com&utm_medium=referral&utm_content=acidelk/error-handling&utm_campaign=Badge_Grade_Dashboard)
 [![Build Status](https://travis-ci.com/acidelk/error-handling.svg?branch=master)](https://travis-ci.com/acidelk/error-handling)
  [![Maven Central](https://img.shields.io/maven-central/v/com.github.acidelk/error-handling.svg?label=Maven%20Central)](https://search.maven.org/search?q=g:%22com.github.acidelk%22%20AND%20a:%22error-handling%22)
 
