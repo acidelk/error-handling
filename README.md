@@ -48,3 +48,17 @@ public class ErrorHandlerConfiguration {
   }
 }
 ```
+
+## Create simple exception using ServiceException
+```java
+@Getter
+@ToString
+public class DifferentChecksumException extends ServiceException {
+
+  public DifferentChecksumException(String msg) {
+    super(HttpStatus.NOT_FOUND, 100, msg);
+  }
+
+}
+
+```
